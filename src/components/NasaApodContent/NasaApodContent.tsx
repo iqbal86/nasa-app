@@ -6,7 +6,7 @@ import {
   Typography,
   CircularProgress,
 } from '@mui/material'
-import { ApodResponse } from '../../types/types'
+import { ApodResponseData } from '../../types/types'
 import { makeStyles } from '@mui/styles'
 import { Dispatch, SetStateAction } from 'react'
 import { Theme } from '@mui/material/styles'
@@ -47,14 +47,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 type Props = {
   onSetDate: Dispatch<SetStateAction<string>>
   date: string
-  data: ApodResponse | null
+  data: ApodResponseData | null
   isLoading: boolean
   errorMessage: string | null
 }
 
 const nasaApodPrefix = 'NasaApod_'
 
-const NasaApod = ({
+const NasaApodContent = ({
   data,
   isLoading,
   onSetDate,
@@ -130,4 +130,4 @@ const NasaApod = ({
   )
 }
 
-export default NasaApod
+export default NasaApodContent

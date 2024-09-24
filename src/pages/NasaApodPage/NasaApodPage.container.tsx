@@ -1,14 +1,14 @@
-import useFetchApod from '../hooks/useFetchApod'
-import NasaPage from './NasaPage'
+import useFetchApod from '../../hooks/useFetchApod'
+import NasaApodPage from './NasaApodPage'
 
-export const NasaPageContainer = () => {
+export const NasaApodPageContainer = () => {
   const { data, isLoading, errorMessage, setDate, date } = useFetchApod()
 
   console.log('data..', data)
   console.log('date..', date)
 
   return (
-    <NasaPage
+    <NasaApodPage
       onSetDate={setDate}
       date={date}
       data={data ? data : null}
@@ -18,4 +18,4 @@ export const NasaPageContainer = () => {
   )
 }
 
-export default NasaPageContainer
+export default NasaApodPageContainer

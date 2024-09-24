@@ -2,11 +2,11 @@
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 import { getAPOD } from '../services/apodService'
 import { AxiosClient, IAxiosClient } from '../utility/AxiosClient'
-import { ApodResponse } from '../types/types'
+import { ApodResponseData } from '../types/types'
 
 type ApiContextProps = {
   apodService: {
-    getAPOD: (date: string) => Promise<ApodResponse>
+    getAPOD: (date: string) => Promise<ApodResponseData>
   }
 }
 

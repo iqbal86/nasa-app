@@ -1,16 +1,17 @@
 import { Grid } from '@mui/material'
-import { ApodResponse } from '../types/types'
+import { ApodResponseData } from '../../types/types'
 import { makeStyles } from '@mui/styles'
-import NasaPageHeader from '../components/NasaPageHeader/NasaPageHeader'
-import backgroundImage from '../../public/astroma-bg.jpg'
-import NasaApod from '../components/NasaApod/NasaApod'
+import NasaPageHeader from '../../components/shared/NasaPagesHeader/NasaPagesHeader'
+import backgroundImage from '../../../public/astroma-bg.jpg'
+import NasaApod from '../../components/NasaApodContent/NasaApodContent'
 import { Dispatch, SetStateAction } from 'react'
 
 const useStyles = makeStyles({
   root: {
     padding: '100px 0 140px 0',
     minHeight: '100% !important',
-    width: '100vw !important',
+    minWidth: '100vw !important',
+    textAlign: 'center',
     backgroundImage: `url(${backgroundImage})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -27,12 +28,12 @@ const useStyles = makeStyles({
 type Props = {
   onSetDate: Dispatch<SetStateAction<string>>
   date: string
-  data: ApodResponse | null
+  data: ApodResponseData | null
   isLoading: boolean
   errorMessage: string | null
 }
 
-const NasaPage = ({
+const NasaApodPage = ({
   data,
   isLoading,
   errorMessage,
@@ -62,4 +63,4 @@ const NasaPage = ({
   )
 }
 
-export default NasaPage
+export default NasaApodPage

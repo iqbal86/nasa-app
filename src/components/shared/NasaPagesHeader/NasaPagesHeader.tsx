@@ -84,12 +84,12 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 const nasaPageHeaderPrefix = 'NasaPageHeader_'
 
-const NasaPageHeader = () => {
+const NasaPagesHeader = () => {
   const classes = useStyles()
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const navigate = useNavigate()
 
-  const pages = ['APOD', 'EPIC', 'NASA NEWS', 'LIBRARY']
+  const pages = ['MARS ROVER PHOTOS', 'EPIC', 'NASA NEWS', 'LIBRARY']
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
@@ -103,6 +103,7 @@ const NasaPageHeader = () => {
     // Map page names to routes
     const routeMap: { [key: string]: string } = {
       NASA: '/',
+      'MARS ROVER PHOTOS': 'rover',
       APOD: '/apod',
       EPIC: '/epic',
       'NASA NEWS': '/news',
@@ -223,4 +224,4 @@ const NasaPageHeader = () => {
   )
 }
 
-export default NasaPageHeader
+export default NasaPagesHeader

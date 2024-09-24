@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import ApiProvider from './common/ApiProvider.tsx'
-import { NasaPageContainer } from '../src/pages/NasaPage.container.tsx'
+import { NasaApodPageContainer } from './pages/NasaApodPage/NasaApodPage.container.tsx'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -25,7 +25,7 @@ ReactDOM.render(
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<NasaPageContainer />} />
+              <Route path="/" element={<NasaApodPageContainer />} />
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>

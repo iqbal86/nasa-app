@@ -1,4 +1,4 @@
-import { ApodResponse } from '../types/types'
+import { ApodResponseData } from '../types/types'
 import { IAxiosClient } from '../utility/AxiosClient'
 
 // const { API_KEY } = process.env.API_KEY
@@ -8,7 +8,7 @@ const apodPath = `planetary/apod?api_key=${API_KEY}`
 export async function getAPOD(
   client: IAxiosClient,
   date: string,
-): Promise<ApodResponse> {
-  const data = await client.get<ApodResponse>(`/${apodPath}&date=${date}`)
+): Promise<ApodResponseData> {
+  const data = await client.get<ApodResponseData>(`/${apodPath}&date=${date}`)
   return data
 }
