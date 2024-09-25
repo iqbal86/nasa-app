@@ -12,12 +12,6 @@ import { Dispatch, SetStateAction } from 'react'
 import { Theme } from '@mui/material/styles'
 
 const useStyles = makeStyles((theme: Theme) => ({
-  image: {
-    width: '800px',
-    height: 'auto',
-    marginTop: '20px',
-    border: '5px solid #ffffff',
-  },
   card: {
     maxWidth: 645,
     border: '5px solid #ffffff',
@@ -63,9 +57,7 @@ const NasaApodContent = ({
 }: Props) => {
   const classes = useStyles()
 
-  console.log(isLoading)
-
-  const formatDate = (dateString: string | null) => {
+  const formatDate = (dateString: string | undefined) => {
     if (!dateString) return
     const date = new Date(dateString)
     const options: Intl.DateTimeFormatOptions = {
@@ -75,8 +67,6 @@ const NasaApodContent = ({
     }
     return date.toLocaleDateString('en-US', options)
   }
-
-  console.log('error messag..', errorMessage)
 
   return (
     <Grid container spacing={1} data-testid={`${nasaApodPrefix}_container`}>
@@ -97,7 +87,7 @@ const NasaApodContent = ({
         justifyContent="center"
         className={classes.cardDate}
       >
-        <Typography>{formatDate(date)}</Typography>
+        <Typography>{formatDate(data?.date)}</Typography>
       </Grid>
 
       <Grid item xs={12} display="flex" justifyContent="center">
@@ -106,7 +96,7 @@ const NasaApodContent = ({
             {errorMessage}
           </Typography>
         ) : isLoading ? (
-          <CircularProgress sx={{ color: 'white' }} />
+          <CircularProgress sx={{ color: '#ffffff' }} />
         ) : (
           <Card className={classes.card}>
             <CardMedia

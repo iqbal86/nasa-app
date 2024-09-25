@@ -3,7 +3,6 @@ import { makeStyles } from '@mui/styles'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import Menu from '@mui/material/Menu'
 import MenuIcon from '@mui/icons-material/Menu'
 import Button from '@mui/material/Button'
@@ -17,10 +16,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: '#000000 !important',
   },
   logo: {
-    width: '45px',
-    height: '45px',
+    width: '75px',
+    height: '75px',
     marginRight: '4px',
-    border: '1px solid #ffffff',
   },
   title: {
     fontFamily: 'monospace',
@@ -28,9 +26,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     letterSpacing: '.3rem',
     color: '#ffffff',
     textDecoration: 'none',
-  },
-  loginButton: {
-    color: '#ffffff !important',
   },
   navButton: {
     color: '#ffffff !important',
@@ -72,14 +67,6 @@ const useStyles = makeStyles((theme: Theme) => ({
       display: 'flex',
     },
   },
-  loginGrid: {
-    display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'flex',
-      justifyContent: 'flex-end',
-      flexGrow: 1,
-    },
-  },
 }))
 
 const nasaPageHeaderPrefix = 'NasaPageHeader_'
@@ -89,7 +76,7 @@ const NasaPagesHeader = () => {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
   const navigate = useNavigate()
 
-  const pages = ['MARS ROVER PHOTOS', 'EPIC', 'NASA NEWS', 'LIBRARY']
+  const pages = ['APOD', 'MARS ROVER PHOTOS']
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget)
@@ -100,16 +87,11 @@ const NasaPagesHeader = () => {
   }
 
   const handleNavigate = (page: string) => {
-    // Map page names to routes
     const routeMap: { [key: string]: string } = {
-      NASA: '/',
-      'MARS ROVER PHOTOS': 'rover',
-      APOD: '/apod',
-      EPIC: '/epic',
-      'NASA NEWS': '/news',
-      LIBRARY: '/library',
+      APOD: '/',
+      'MARS ROVER PHOTOS': '/rover',
     }
-    navigate(routeMap[page]) // Navigate to the mapped route
+    navigate(routeMap[page])
     handleCloseNavMenu()
   }
 
@@ -120,21 +102,11 @@ const NasaPagesHeader = () => {
           <Grid item className={classes.logoContainer}>
             <IconButton component="a" href="" sx={{ padding: 0 }}>
               <img
-                src="https://mb-space-explorer.vercel.app/assets/android-chrome-192x192-58e68c46.webp"
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e5/NASA_logo.svg"
                 alt="Nasa"
                 className={classes.logo}
               />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href=""
-              className={classes.title}
-              data-testid={`${nasaPageHeaderPrefix}_title`}
-            >
-              NASA
-            </Typography>
           </Grid>
 
           <Grid item className={classes.menuIcon}>
@@ -170,21 +142,12 @@ const NasaPagesHeader = () => {
               {pages.map((page) => (
                 <MenuItem
                   key={page}
-                  //   onClick={handleCloseNavMenu}
                   onClick={() => handleNavigate(page)}
                   data-testid={`${nasaPageHeaderPrefix}_menuItem${page}`}
                 >
                   <Button key={page}>{page}</Button>
                 </MenuItem>
               ))}
-              <MenuItem
-                onClick={handleCloseNavMenu}
-                data-testid={`${nasaPageHeaderPrefix}_loginMenuItem`}
-              >
-                <Button color="primary" sx={{ justifyContent: 'flex-end' }}>
-                  Login
-                </Button>
-              </MenuItem>
             </Menu>
           </Grid>
 
@@ -203,20 +166,6 @@ const NasaPagesHeader = () => {
                 {page}
               </Button>
             ))}
-          </Grid>
-
-          <Grid
-            item
-            className={classes.loginGrid}
-            data-testid={`${nasaPageHeaderPrefix}_loginGrid`}
-          >
-            <Button
-              onClick={() => console.log('Login Clicked')}
-              className={classes.loginButton}
-              data-testid={`${nasaPageHeaderPrefix}_loginButton`}
-            >
-              Login
-            </Button>
           </Grid>
         </Grid>
       </Toolbar>

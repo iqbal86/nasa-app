@@ -1,10 +1,9 @@
 import { Grid } from '@mui/material'
-import { ApodResponseData } from '../../types/types'
+import { PhotoData } from '../../types/types'
 import { makeStyles } from '@mui/styles'
 import NasaPageHeader from '../../components/shared/NasaPagesHeader/NasaPagesHeader'
 import backgroundImage from '../../../public/astroma-bg.jpg'
-import NasaApod from '../../components/NasaApodContent/NasaApodContent'
-import { Dispatch, SetStateAction } from 'react'
+import MarsRoverPhotosListItem from '../../components/MarsRoverPhotosListItem/MarsRoverPhotosListItem'
 
 const useStyles = makeStyles({
   root: {
@@ -26,19 +25,15 @@ const useStyles = makeStyles({
 })
 
 type Props = {
-  onSetDate: Dispatch<SetStateAction<string>>
-  date: string
-  data: ApodResponseData | null
+  data: PhotoData | null
   isLoading: boolean
-  errorMessage: string | null
+  roverPhotosErrorMessage: string | null
 }
 
-const NasaApodPage = ({
+const MarsRoverPhotosPage = ({
   data,
   isLoading,
-  errorMessage,
-  onSetDate,
-  date,
+  roverPhotosErrorMessage,
 }: Props) => {
   const classes = useStyles()
   return (
@@ -47,16 +42,14 @@ const NasaApodPage = ({
         <NasaPageHeader />
       </Grid>
       <Grid item>
-        <NasaApod
+        <MarsRoverPhotosListItem
           data={data}
           isLoading={isLoading}
-          onSetDate={onSetDate}
-          date={date}
-          errorMessage={errorMessage}
+          errorMessage={roverPhotosErrorMessage}
         />
       </Grid>
     </Grid>
   )
 }
 
-export default NasaApodPage
+export default MarsRoverPhotosPage

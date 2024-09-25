@@ -2,11 +2,15 @@
 import { ReactNode, createContext, useContext, useMemo, useState } from 'react'
 import { getAPOD } from '../services/apodService'
 import { AxiosClient, IAxiosClient } from '../utility/AxiosClient'
-import { ApodResponseData } from '../types/types'
+import { ApodResponseData, PhotoData } from '../types/types'
+import { getPhotos } from '../services/roverPhotosService'
 
 type ApiContextProps = {
   apodService: {
     getAPOD: (date: string) => Promise<ApodResponseData>
+  }
+  roverPhotosService: {
+    getPhotos: () => Promise<PhotoData>
   }
 }
 
@@ -27,6 +31,9 @@ const ApiProvider = ({ children }: { children: ReactNode }) => {
     () => ({
       apodService: {
         getAPOD: async (date: string) => getAPOD(client, date),
+      },
+      roverPhotosService: {
+        getPhotos: async () => getPhotos(client),
       },
     }),
     [client],

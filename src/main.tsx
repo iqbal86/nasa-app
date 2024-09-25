@@ -5,6 +5,7 @@ import { NasaApodPageContainer } from './pages/NasaApodPage/NasaApodPage.contain
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MarsRoverPhotosPageContainer from './pages/MarsRoverPhotosPage/MarsRoverPhotosPage.container.tsx'
 
 const theme = createTheme()
 
@@ -26,6 +27,7 @@ ReactDOM.render(
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<NasaApodPageContainer />} />
+              <Route path="/rover" element={<MarsRoverPhotosPageContainer />} />
             </Routes>
           </BrowserRouter>
         </QueryClientProvider>
