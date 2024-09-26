@@ -3,8 +3,9 @@ import { ApodResponseData } from '../../types/types'
 import { makeStyles } from '@mui/styles'
 import NasaPageHeader from '../../components/shared/NasaPagesHeader/NasaPagesHeader'
 import backgroundImage from '../../../public/astroma-bg.jpg'
-import NasaApod from '../../components/NasaApodContent/NasaApodContent'
+import NasaApodContent from '../../components/NasaApodContent/NasaApodContent'
 import { Dispatch, SetStateAction } from 'react'
+// import ApodSkeleton from '../../components/shared/ApodSkeleton/ApodSkeleton'
 
 const useStyles = makeStyles({
   root: {
@@ -20,10 +21,9 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
-  footer: {
-    paddingTop: '90px',
-  },
 })
+
+// const nasaApodPagePrefix = 'NasaApodPage_'
 
 type Props = {
   onSetDate: Dispatch<SetStateAction<string>>
@@ -42,12 +42,18 @@ const NasaApodPage = ({
 }: Props) => {
   const classes = useStyles()
   return (
+    // <>
+    //   {isLoading ? (
+    //     <Grid item data-testid={`${nasaApodPagePrefix}_skeleton`}>
+    //       <ApodSkeleton />
+    //     </Grid>
+    //   ) : (
     <Grid container className={classes.root}>
       <Grid item>
         <NasaPageHeader />
       </Grid>
       <Grid item>
-        <NasaApod
+        <NasaApodContent
           data={data}
           isLoading={isLoading}
           onSetDate={onSetDate}
@@ -56,6 +62,8 @@ const NasaApodPage = ({
         />
       </Grid>
     </Grid>
+    //   )}
+    // </>
   )
 }
 

@@ -19,9 +19,6 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'center',
   },
-  footer: {
-    paddingTop: '90px',
-  },
 })
 
 type Props = {

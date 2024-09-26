@@ -79,7 +79,6 @@ const NasaApodContent = ({
           className={classes.dateInput}
         />
       </Grid>
-
       <Grid
         item
         xs={12}
