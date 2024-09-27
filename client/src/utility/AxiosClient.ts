@@ -11,7 +11,7 @@ export interface IAxiosClient {
 }
 
 const defaultConfig: AxiosDefaultConfig = {
-  baseURL: 'http://localhost:5001/',
+  baseURL: 'https://nasa-app-server-4csg.onrender.com/',
   headers: {
     'Content-Type': 'application/json',
   },

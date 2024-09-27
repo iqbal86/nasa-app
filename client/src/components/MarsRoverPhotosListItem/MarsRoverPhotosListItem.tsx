@@ -17,6 +17,8 @@ type Props = {
 const marsRoverPhotosListItemPrefix = 'MarsRoverPhotosListItem_'
 
 const MarsRoverPhotosListItem = ({ data, isLoading, errorMessage }: Props) => {
+  console.log(isLoading)
+  console.log(errorMessage)
   return (
     <Container>
       <Typography variant="h3" align="center" padding="50px" color="primary">

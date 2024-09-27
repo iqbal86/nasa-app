@@ -19,7 +19,7 @@ export const ApiContext = createContext<ApiContextProps>({} as ApiContextProps)
 const ApiProvider = ({ children }: { children: ReactNode }) => {
   const [client] = useState<IAxiosClient>(
     new AxiosClient({
-      baseURL: 'https://api.nasa.gov/',
+      baseURL: 'https://nasa-app-server-4csg.onrender.com/',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
