@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     marginLeft: '-8px',
     display: 'flex',
     justifyContent: 'center',
+    position: 'absolute',
   },
 })
 

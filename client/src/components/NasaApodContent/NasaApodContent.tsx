@@ -90,13 +90,23 @@ const NasaApodContent = ({
       </Grid>
 
       <Grid item xs={12} display="flex" justifyContent="center">
-        {errorMessage ? (
-          <Typography className={classes.error} data-testid={'NasaApod__error'}>
+        {errorMessage && (
+          <Typography
+            className={classes.error}
+            data-testid={`${nasaApodPrefix}_error`}
+          >
             {errorMessage}
           </Typography>
-        ) : isLoading ? (
-          <CircularProgress sx={{ color: '#ffffff' }} />
-        ) : (
+        )}
+
+        {isLoading && (
+          <CircularProgress
+            sx={{ color: '#ffffff' }}
+            data-testid={`${nasaApodPrefix}_loading`}
+          />
+        )}
+
+        {!isLoading && !errorMessage && (
           <Card className={classes.card}>
             <CardMedia
               component="img"

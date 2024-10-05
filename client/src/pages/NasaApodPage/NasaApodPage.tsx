@@ -5,7 +5,6 @@ import NasaPageHeader from '../../components/shared/NasaPagesHeader/NasaPagesHea
 import backgroundImage from '../../../public/astroma-bg.jpg'
 import NasaApodContent from '../../components/NasaApodContent/NasaApodContent'
 import { Dispatch, SetStateAction } from 'react'
-// import ApodSkeleton from '../../components/shared/ApodSkeleton/ApodSkeleton'
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +19,7 @@ const useStyles = makeStyles({
     marginLeft: '-8px',
     display: 'flex',
     justifyContent: 'center',
+    position: 'absolute',
   },
 })
 

@@ -11,8 +11,8 @@ export const MarsRoverPhotosPageContainer = () => {
   return (
     <MarsRoverPhotosPage
       data={data ? data : null}
-      isLoading={false}
-      roverPhotosErrorMessage={null}
+      isLoading={isLoading}
+      roverPhotosErrorMessage={roverPhotosErrorMessage}
     />
   )
 }
