@@ -9,7 +9,6 @@ import {
 } from '@mui/material'
 import { PhotoData } from '../../types/types'
 import { makeStyles } from '@mui/styles'
-import ApodSkeleton from '../shared/ApodSkeleton/ApodSkeleton'
 
 const useStyles = makeStyles(() => ({
   error: {
