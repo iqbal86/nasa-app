@@ -23,8 +23,6 @@ const useStyles = makeStyles({
   },
 })
 
-// const nasaApodPagePrefix = 'NasaApodPage_'
-
 type Props = {
   onSetDate: Dispatch<SetStateAction<string>>
   date: string
@@ -42,12 +40,6 @@ const NasaApodPage = ({
 }: Props) => {
   const classes = useStyles()
   return (
-    // <>
-    //   {isLoading ? (
-    //     <Grid item data-testid={`${nasaApodPagePrefix}_skeleton`}>
-    //       <ApodSkeleton />
-    //     </Grid>
-    //   ) : (
     <Grid container className={classes.root}>
       <Grid item>
         <NasaPageHeader />
@@ -62,8 +54,6 @@ const NasaApodPage = ({
         />
       </Grid>
     </Grid>
-    //   )}
-    // </>
   )
 }
 
